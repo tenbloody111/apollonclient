@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Apollon Client</title>
+  <style>
+    body {
+      font-family: Arial, Sans-Serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      margin: 0;
+      padding: 50px 10px; /* Jarak atas bawah dikurangi agar pas di layar HP */
+    }
+    .box {
+      background: white;
+      padding: 20px; /* Dikurangi sedikit dari 30px agar hemat ruang di HP */
+      display: inline-block;
+      border-radius: 5px;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+      
+      /* PERUBAHAN UTAMA UNTUK HP: */
+      width: 90%;          /* Lebar kotak akan mengambil 90% lebar layar HP */
+      max-width: 350px;    /* Lebar kotak TIDAK AKAN LEBIH dari 350px jika dibuka di PC */
+      box-sizing: border-box; /* Memastikan padding tidak merusak ukuran lebar */
+    }
+    
+    h1 {
+      font-size: 24px; /* Ukuran font disesuaikan agar tidak kebesaran di HP */
+      margin-top: 10px;
+    }
+
+    .info-mc {
+      text-align: left;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #e3e3e3;
+      margin-bottom: 12px;
+      /* Mencegah teks panjang terpotong atau keluar dari kotak */
+      word-wrap: break-word; 
+      overflow-wrap: break-word;
+    }
+    .info-mc p {
+      margin: 8px 0;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    /* Kotak informasi tambahan untuk penjelasan CLONE */
+    .info-note {
+      text-align: center;
+      background-color: #fffbe6;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ffe58f;
+      margin-bottom: 20px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .info-note p {
+      margin: 0;
+      font-size: 13px;
+      font-weight: bold;
+      color: #d48806;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 14px;
+      color: #333;
+      margin-top: 15px;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+    
+    /* Gaya untuk tombol Download */
+    .btn-download {
+      display: block;
+      background-color: #6366F1; /* Warna Indigo/Ungu Modern */
+      color: white;
+      padding: 12px 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 4px;
+      margin-bottom: 12px; /* Jarak antar tombol download */
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+    .btn-download:hover {
+      background-color: #4f46e5;
+    }
+
+    /* Highlight khusus tombol versi terbaru */
+    .btn-latest {
+      background-color: #10B981; /* Warna Hijau/Emerald Modern */
+    }
+    .btn-latest:hover {
+      background-color: #059669;
+    }
+    
+    /* Gaya khusus untuk tombol download terakhir agar memberi jarak ke tombol exit */
+    .space-bottom {
+      margin-bottom: 25px;
+    }
+    
+    /* Gaya untuk link Exit / Keluar */
+    .btn-exit {
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      display: inline-block;
+      padding: 10px; /* Ditambah padding agar area klik di HP lebih pas */
+    }
+    .btn-exit:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Apollon Client</h1>
+    
+    <div class="info-mc">
+      <p>Ketuk tombol dibawah ini untuk mendownload Apollon Client versi terbaru, support mcpe 26.44</p>
+    </div>
+
+    <!-- Kotak Penjelasan Tambahan (Terpisah) -->
+    <div class="info-note">
+      <p>CLONE = TIDAK PERLU HAPUS MC ORI</p>
+    </div>
+
+    <!-- Sub-judul Versi Terbaru -->
+    <div class="section-title">Versi Terbaru:</div>
+    <!-- Tombol Download Versi Terbaru (v6.5 clone) -->
+    <a href="https://www.mediafire.com/file/mf16fz8zxzmd9uo/Apollon_Client_v6.5.apk/file" target="_blank" class="btn-download btn-latest">v6.5 clone</a>
+
+    <!-- Sub-judul Versi Lama -->
+    <div class="section-title">Versi lama:</div>
+    <!-- Tombol Download Link v6.41 -->
+    <a href="https://www.mediafire.com/file/slqdpozztv1te2w/%255BCLONE%255D_Apollon_Client_v6.41.apk/file" target="_blank" class="btn-download">v6.41 clone</a>
+
+    <!-- Tombol Download Link v6.4 -->
+    <a href="https://www.mediafire.com/file/1pgig185a68jlu3/Minecraft_Apollon_Client_v6.4_signed.apk/file" target="_blank" class="btn-download">v6.4 clone</a>
+
+    <!-- Tombol Download Link v6.1 -->
+    <a href="https://www.mediafire.com/file/p7e58i02bt7bmhg/MCPE_Apollon_Client_1.26.33_v6.1_64Bit.apk/file" target="_blank" class="btn-download">v6.1 clone</a>
+
+    <!-- Tombol Download Link v6.0 -->
+    <a href="https://www.mediafire.com/file/1ebstryfqjflvm5/Minecraft_Apollonv6.0_signed.apk/file" target="_blank" class="btn-download">v6.0 clone</a>
+
+    <!-- Tombol Download Link v5.8 -->
+    <a href="https://www.mediafire.com/file/lv6ryb4kkmw0vc8/Minecraft_signed.apk/file" target="_blank" class="btn-download space-bottom">v5.8 clone</a>
+    
+    <!-- Tombol Exit menuju Google -->
+    <a href="https://google.com" class="btn-exit">Keluar</a>
+  </div>
+</body>
+</html>
