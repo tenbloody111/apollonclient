@@ -31,7 +31,7 @@
     color:var(--text);
     display:flex;
     justify-content:center;
-    padding:40px 14px;
+    padding:40px 14px 96px;
   }
   @keyframes auroraDrift{
     0%,100%{ background-position:50% 0%, 15% 85%, 0 0; }
@@ -248,6 +248,46 @@
   }
   .btn-exit:hover{ color:var(--purple-soft); }
 
+  /* ==== Language switch ==== */
+  .lang-switch{
+    position:absolute;
+    top:14px;
+    right:14px;
+    display:flex;
+    border:1.5px solid rgba(168,85,247,0.5);
+    border-radius:10px;
+    overflow:hidden;
+    background:rgba(168,85,247,0.08);
+  }
+  .lang-switch button{
+    background:transparent;
+    border:0;
+    color:var(--muted);
+    font-family:inherit;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.04em;
+    padding:7px 10px;
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+  .lang-switch button.active{ background:var(--purple); color:#fff; }
+
+  /* ==== Changelog ==== */
+  .cl-list{ padding:2px 0 8px; }
+  .cl-entry{
+    background:linear-gradient(180deg, #17171c, #121214);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:12px 14px;
+    margin-bottom:10px;
+  }
+  .cl-head{ display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .cl-ver{ font-weight:700; font-size:13px; color:#fff; }
+  .cl-cat{ font-size:12px; font-weight:700; color:var(--purple-soft); margin-bottom:6px; }
+  .cl-entry ul{ margin:0; padding-left:18px; }
+  .cl-entry li{ font-size:12.5px; line-height:1.55; color:#d3d3dc; }
+
   @keyframes tapPop{
     0%{ transform:scale(1); }
     45%{ transform:scale(0.94); }
@@ -262,6 +302,10 @@
 </head>
 <body>
   <div class="box">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="id">ID</button>
+      <button type="button" data-lang="ru">RU</button>
+    </div>
     <button id="musicToggle" class="music-toggle" type="button" aria-label="Putar musik">
       <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
       <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
@@ -273,15 +317,15 @@
 
     <div class="glow-border">
       <div class="glow-card-body">
-        <p class="info-mc-text">Ketuk tombol di bawah untuk mendownload Apollon Client versi terbaru, mendukung MCPE 26.51.</p>
+        <p class="info-mc-text" data-i18n="info">Ketuk tombol di bawah untuk mendownload Apollon Client versi terbaru, mendukung MCPE 26.51.</p>
         <div class="note-row">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
-          <p>CLONE = TIDAK PERLU HAPUS MC ORI</p>
+          <p data-i18n="note">CLONE = TIDAK PERLU HAPUS MC ORI</p>
         </div>
       </div>
     </div>
 
-    <div class="section-title">Terbaru</div>
+    <div class="section-title" data-i18n="latest">Terbaru</div>
     <a href="https://www.mediafire.com/file/vdjgm72seb30sxy/Apollon_Client_v6.62.apk/file" target="_blank" class="btn-download btn-latest">
       <span>v6.62</span>
       <span class="right-group">
@@ -290,9 +334,30 @@
       </span>
     </a>
 
+    <details class="changelog" open>
+      <summary>
+        <span data-i18n="changelog">Changelog</span>
+        <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="cl-list">
+        <!-- Entri terbaru selalu paling atas. Untuk update baru, salin blok .cl-entry ini
+             dan tambahkan teksnya di kamus I18N (script di bawah) untuk kedua bahasa. -->
+        <div class="cl-entry">
+          <div class="cl-head">
+            <span class="cl-ver">v6.62</span>
+            <span class="mcpe-badge" data-i18n="latest">Terbaru</span>
+          </div>
+          <div class="cl-cat">ℹ️ <span data-i18n="cl_new">Baru</span></div>
+          <ul>
+            <li data-i18n="cl_662_1">Memperbaiki hotkey dan kerja tombol fisik yang menyebabkan hang.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
     <details>
       <summary>
-        Versi Lama
+        <span data-i18n="old_versions">Versi Lama</span>
         <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <div class="old-list">
@@ -309,7 +374,7 @@
       </div>
     </details>
 
-    <a href="https://google.com" class="btn-exit">Keluar</a>
+    <a href="https://google.com" class="btn-exit" data-i18n="exit">Keluar</a>
   </div>
 
   <audio id="bgm" loop preload="auto" muted playsinline>
@@ -321,11 +386,66 @@
       var audio = document.getElementById('bgm');
       var toggle = document.getElementById('musicToggle');
       var unmuted = false;
+      var playing = false;
+
+      /* ==== Bahasa: Indonesia (id) & Rusia (ru) ==== */
+      var I18N = {
+        id: {
+          info: 'Ketuk tombol di bawah untuk mendownload Apollon Client versi terbaru, mendukung MCPE 26.51.',
+          note: 'CLONE = TIDAK PERLU HAPUS MC ORI',
+          latest: 'Terbaru',
+          changelog: 'Changelog',
+          cl_new: 'Baru',
+          cl_662_1: 'Memperbaiki hotkey dan kerja tombol fisik yang menyebabkan hang.',
+          old_versions: 'Versi Lama',
+          exit: 'Keluar',
+          music_play: 'Putar musik',
+          music_pause: 'Jeda musik'
+        },
+        ru: {
+          info: 'Нажмите кнопку ниже, чтобы скачать последнюю версию Apollon Client с поддержкой MCPE 26.51.',
+          note: 'CLONE = НЕ НУЖНО УДАЛЯТЬ ОРИГИНАЛЬНЫЙ MC',
+          latest: 'Новая',
+          changelog: 'Список изменений',
+          cl_new: 'Новое',
+          cl_662_1: 'Исправлены хоткеи и работа физических кнопок, вызывающие зависание.',
+          old_versions: 'Старые версии',
+          exit: 'Выйти',
+          music_play: 'Включить музыку',
+          music_pause: 'Пауза'
+        }
+      };
+      var lang = 'id';
 
       function setPlayingUI(isPlaying){
+        playing = isPlaying;
         toggle.classList.toggle('playing', isPlaying);
-        toggle.setAttribute('aria-label', isPlaying ? 'Jeda musik' : 'Putar musik');
+        toggle.setAttribute('aria-label', I18N[lang][isPlaying ? 'music_pause' : 'music_play']);
       }
+
+      function applyLang(l){
+        lang = I18N[l] ? l : 'id';
+        document.documentElement.lang = lang;
+        document.querySelectorAll('[data-i18n]').forEach(function(el){
+          var txt = I18N[lang][el.getAttribute('data-i18n')];
+          if (txt) el.textContent = txt;
+        });
+        document.querySelectorAll('.lang-switch button').forEach(function(b){
+          b.classList.toggle('active', b.getAttribute('data-lang') === lang);
+        });
+        setPlayingUI(playing);
+        try { localStorage.setItem('apollon-lang', lang); } catch (e) {}
+      }
+
+      document.querySelectorAll('.lang-switch button').forEach(function(b){
+        b.addEventListener('click', function(){ applyLang(b.getAttribute('data-lang')); });
+      });
+
+      // Bahasa awal: pilihan tersimpan -> bahasa browser (ru = Rusia) -> Indonesia
+      var saved = null;
+      try { saved = localStorage.getItem('apollon-lang'); } catch (e) {}
+      var browserLang = (navigator.language || '').toLowerCase().indexOf('ru') === 0 ? 'ru' : 'id';
+      applyLang(saved || browserLang);
 
       // Mulai diam-diam (muted) begitu halaman dibuka — browser selalu
       // mengizinkan autoplay ketika audio dalam kondisi muted.
