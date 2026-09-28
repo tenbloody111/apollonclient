@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Apollon Client</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="box">
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="id">ID</button>
+      <button type="button" data-lang="ru">RU</button>
+    </div>
+    <button id="musicToggle" class="music-toggle" type="button" aria-label="Putar musik">
+      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+    </button>
+    <div class="logo-wrap">
+      <img src="assets/logo.jpg" alt="Apollon Client">
+    </div>
+    <h1>Apollon Client</h1>
+
+    <div class="glow-border">
+      <div class="glow-card-body">
+        <p class="info-mc-text" data-i18n="info">Ketuk tombol di bawah untuk mendownload Apollon Client versi terbaru, mendukung MCPE 26.51.</p>
+        <div class="note-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <p data-i18n="note">CLONE = TIDAK PERLU HAPUS MC ORI</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title" data-i18n="latest">Terbaru</div>
+    <div id="latestSlot"></div>
+
+    <details class="changelog" id="changelogBox" open>
+      <summary>
+        <span data-i18n="changelog">Changelog</span>
+        <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="cl-list" id="changelogList"></div>
+    </details>
+
+    <details id="oldBox">
+      <summary>
+        <span data-i18n="old_versions">Versi Lama</span>
+        <svg class="chev" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <div class="old-list" id="oldList"></div>
+    </details>
+
+    <a href="https://google.com" class="btn-exit" data-i18n="exit">Keluar</a>
+  </div>
+
+  <audio id="bgm" loop preload="auto" muted playsinline>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="js/versions.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
