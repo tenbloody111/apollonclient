@@ -14,6 +14,15 @@
                  untuk versi paling atas)
    ===================================================================== */
 var VERSIONS = [
+   {
+    name: 'v6.7',
+    mcpe: '26.52',
+    url:  'https://www.mediafire.com/file/aijkxo93qz2gb3k/Apollon_Client_v6.7.apk/file',
+    changelog: {
+      id: ['Memperbaiki hotkey dan kerja tombol fisik yang menyebabkan hang.'],
+      ru: ['Исправлены хоткеи и работа физических кнопок, вызывающие зависание.']
+    }
+  },
   {
     name: 'v6.62',
     mcpe: '26.51',
