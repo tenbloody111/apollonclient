@@ -19,8 +19,26 @@ var VERSIONS = [
     mcpe: '26.52',
     url:  'https://www.mediafire.com/file/aijkxo93qz2gb3k/Apollon_Client_v6.7.apk/file',
     changelog: {
-      id: ['Memperbaiki hotkey dan kerja tombol fisik yang menyebabkan hang.'],
-      ru: ['Исправлены хоткеи и работа физических кнопок, вызывающие зависание.']
+      id: ['- Ditambahkan fitur Instant Respawn.
+- Ditambahkan fitur Stay Online In Background. Tetap berada di server meskipun game diminimalkan.
+- Ditambahkan fitur Blink.
+- Ditambahkan fitur Server Blink. Fitur pembuat lag untuk server BDS.
+- Scaffold kini dapat mengenali blok padat dengan benar.
+- Block Fly kini turun lebih cepat.
+- Semua server yang menggunakan Prediction kini bekerja dengan benar bersama Free Camera dan KillAura/Rotations.
+- Kode untuk mengambil data pemain telah diubah.
+- Penggunaan ulang data dalam kode telah dioptimalkan.
+- Fitur Step telah dihapus.'],
+      ru: ['- Добавлен Instant Respawn.
+- Добавлен Stay Online In Background. Оставайтесь на сервере, даже если свернуть игру.
+- Добавлен Blink.
+- Добавлен Server Blink. Лаггер для серверов BDS.
+- Scaffold теперь правильно распознаёт твёрдые блоки.
+- Block Fly теперь опускается быстрее.
+- Все серверы с Prediction корректно работают с Free Camera и KillAura/Rotations.
+- Изменён код получения данных игроков.
+- Оптимизировано повторное использование данных в коде.
+- Удалён Step.']
     }
   },
   {
